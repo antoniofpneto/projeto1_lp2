@@ -1,23 +1,16 @@
 cmake_minimum_required(VERSION 3.10)
+project(WordCountParallel C)
 
-project(word_counter C)
+# Configuração rigorosa de flags exigida pela especificação
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -O2 -Wall -Wextra")
 
-set(CMAKE_C_STANDARD 11)
-
-add_compile_options(-O2 -Wall -Wextra)
-
+# Localiza e vincula a biblioteca pthreads nativa de forma portável
 find_package(Threads REQUIRED)
 
-add_executable(
-    word_counter
-    src/main.c
-    src/sequential.c
-    src/parallel.c
-    src/timer.c
-    src/utils.c
-)
+# Inclui os fontes do diretório src
+file(GLOB SOURCES "src/*.c")
 
-target_link_libraries(
-    word_counter
-    Threads::Threads
-)
+add_executable(word_count_exe ${SOURCES})
+
+# Linka com Threads::Threads de forma explícita
+target_link_libraries(word_count_exe PRIVATE Threads::Threads)
