@@ -24,8 +24,6 @@ Seguindo as diretrizes de modelagem do enunciado, a entrada de dados foi gerada 
 
 O script simula o comportamento do *Random String Generator* (`random.org/strings`), criando um lote base de 5.000 strings aleatórias (com tamanhos variando dinamicamente entre 3 e 12 caracteres). Utilizando uma estratégia de semente fixa (`random.seed(42)`), esse lote foi replicado e concatenado com separação por espaços até atingir o tamanho alvo de **55 MB** em disco, gerando o arquivo `texto_grande.txt`.
 
----
-
 ## Instruções de Compilação e Execução (Questão 1 - C)
 
 O programa aceita dinamicamente o número de threads desejado como um argumento de linha de comando. Se nenhum valor for passado, o padrão de execução será de 4 threads.
@@ -79,18 +77,7 @@ Loop Estatístico e Descarte de Aquecimento: Foram realizadas 25 execuções con
 
 ## Gráfico de Escalabilidade (Questão 4 - B)
 
-```text
-Speedup Real
-
-  2.0x |                                     ● (1.78x)
-       |                        ● (1.75x)
-  1.5x |           ● (1.51x)
-       |
-  1.0x | ● (1.00x)
-       +--------------------------------------------
-         1         2            4            8
-                            Nº de Threads
-```
+![alt text](image-1.png)
 
 ## Discussão dos Resultados e Análise de Escalabilidade (Questão 4 - C)
 
