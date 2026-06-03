@@ -32,19 +32,19 @@ O programa aceita dinamicamente o número de threads desejado como um argumento 
 
 ### Compilação e Execução via CMake (Recomendado)
 ```bash```
-# Configura o build em modo de otimização (Release)
+#### Configura o build em modo de otimização (Release)
 cmake -B build -DCMAKE_BUILD_TYPE=Release
 
-# Compila o projeto
+#### Compila o projeto
 cmake --build build
 
-# Executa variando o número de threads (Exemplo com 4 threads)
+#### Executa variando o número de threads (Exemplo com 4 threads)
 ./build/word_count_exe 4
 
-# Compilação direta com flags estritas e biblioteca de threads
+#### Compilação direta com flags estritas e biblioteca de threads
 gcc -O2 -Wall -Wextra -pthread src/main.c -o meu_exe
 
-# Executa variando o número de threads (Exemplo com 8 threads)
+#### Executa variando o número de threads (Exemplo com 8 threads)
 ./meu_exe 8
 
 ## Ambiente de Teste das Medições
@@ -79,15 +79,18 @@ Loop Estatístico e Descarte de Aquecimento: Foram realizadas 25 execuções con
 
 ## Gráfico de Escalabilidade (Questão 4 - B)
 
+```text
 Speedup Real
-  2.0x |                                     o (1.78x)
-       |                        o (1.75x)
-  1.5x |           o (1.51x)
+
+  2.0x |                                     ● (1.78x)
+       |                        ● (1.75x)
+  1.5x |           ● (1.51x)
        |
-  1.0x | o (1.00x)
+  1.0x | ● (1.00x)
        +--------------------------------------------
-         1         2            4            8    
-                                       Nº de Threads
+         1         2            4            8
+                            Nº de Threads
+```
 
 ## Discussão dos Resultados e Análise de Escalabilidade (Questão 4 - C)
 
